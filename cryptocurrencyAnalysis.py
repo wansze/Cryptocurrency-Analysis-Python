@@ -1,6 +1,9 @@
 # towardsdatascience.com : Generating trade signals using MA crossover strategy
 # sanjoshaju github: cryptocurrenct-analysis-python
+# triestpa crypto analysis python github
+# mpfouziya crypto analysis using python (scaling the graph & looking at correlation)
 
+from pandas.io.parsers import count_empty_vals
 import numpy as np
 import pandas as pd
 import pandas_datareader as pdr
@@ -34,6 +37,22 @@ df.plot(x = 'Date' ,figsize = (15,8))
 plt.grid()
 plt.ylabel("Price in USD")
 plt.show()
+
+# scale the data
+from sklearn import preprocessing
+min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0,100))
+scaled = min_max_scaler.fit_transform(df)
+print(scaled)
+
+# convert scaled numpy array into dataframe
+df_scaled = pd.DataFrame(scaled, columns = df.columns)
+
+plt.style.use('fivethirtyeight')
+df.plot(x = 'Date' ,figsize = (15,8))
+plt.title("Crypto scaled graph")
+plt.show()
+
+
 
 
 
