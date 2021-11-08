@@ -1,12 +1,13 @@
-import numpy as np
+import datetime
+from datetime import date
 import pandas as pd
 import pandas_datareader as pdr
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
-# Save crypto data into a csv file
-start_date = '2021-01-01'
-end_date = '2021-11-06'
+# Save crypto data from past 30 days into CSV files
+end_date = date.today()
+start_date = end_date - datetime.timedelta(days = 30)
 
 cryptos = ['BTC-USD', 'ETH-USD', 'BNB-USD', 'SHIB-USD'] 
 
