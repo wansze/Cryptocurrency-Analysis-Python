@@ -1,9 +1,3 @@
-# towardsdatascience.com : Generating trade signals using MA crossover strategy
-# sanjoshaju github: cryptocurrenct-analysis-python
-# triestpa crypto analysis python github
-# mpfouziya crypto analysis using python (scaling the graph & looking at correlation)
-
-from pandas.io.parsers import count_empty_vals
 import numpy as np
 import pandas as pd
 import pandas_datareader as pdr
@@ -11,7 +5,6 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 
 # Save crypto data into a csv file
-
 start_date = '2021-01-01'
 end_date = '2021-11-06'
 
@@ -47,6 +40,11 @@ plt.xlabel("Days")
 plt.ylabel("Scaled Crypto Price ($)", fontdict={'fontsize':11})
 plt.title("Crypto scaled graph", fontdict={'fontsize':11})
 plt.show()
+
+
+
+
+
 
 
 
