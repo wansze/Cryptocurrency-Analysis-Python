@@ -3,13 +3,13 @@ from datetime import date
 import pandas as pd
 import pandas_datareader as pdr
 import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
+from sklearn import preprocessing
 
 # Save crypto data from past 30 days into CSV files
 end_date = date.today()
 start_date = end_date - datetime.timedelta(days = 30)
 
-cryptos = ['BTC-USD', 'ETH-USD', 'BNB-USD', 'SHIB-USD'] 
+cryptos = ['BTC-USD', 'ETH-USD', 'BNB-USD'] 
 
 filepaths = []
 
@@ -21,14 +21,12 @@ for crypto in cryptos:
 btc_df = pd.read_csv(filepaths[0])
 eth_df = pd.read_csv(filepaths[1])
 bnb_df = pd.read_csv(filepaths[2])
-shib_df = pd.read_csv(filepaths[3])
 
-df = pd.DataFrame({'BTC': btc_df['Close'], 'ETH': eth_df['Close'], 'BNB' : bnb_df['Close'], 'SHIB' : shib_df['Close']})
+df = pd.DataFrame({'BTC': btc_df['Close'], 'ETH': eth_df['Close'], 'BNB' : bnb_df['Close']})
 
 # scale the data
-from sklearn import preprocessing
-min_max_scaler = preprocessing.MinMaxScaler(feature_range=(0,100))
-scaled = min_max_scaler.fit_transform(df)
+scaler = preprocessing.MinMaxScaler(feature_range=(0,100))
+scaled = scaler.fit_transform(df)
 print(scaled)
 
 # convert scaled numpy array into dataframe and plot it
