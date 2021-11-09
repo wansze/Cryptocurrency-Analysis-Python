@@ -4,6 +4,10 @@ import pandas as pd
 import pandas_datareader as pdr
 import matplotlib.pyplot as plt
 
+# Using Moving Averages as Price Signals
+# When Short MA crosses above long MA: Bullish Trading Signal (buying point)
+# When Short MA falls below long MA: Bearish Trading Signal (selling point)
+
 # Function for getting stock price data and storing it in a dataframe
 def stockpriceanalysis(stock):
 
