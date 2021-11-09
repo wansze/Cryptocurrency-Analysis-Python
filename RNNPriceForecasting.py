@@ -31,4 +31,17 @@ scaler = preprocessing.MinMaxScaler()
 training_data = scaler.fit_transform(training_data)
 print(training_data)
 
+    # pandas.DataFrame.shape returns a tuple repr the dimensionality of the DataFrame
+X_train, Y_train = [], []
+
+print(training_data.shape[0])
+
+for i in range(60, training_data.shape[0]):
+    X_train.append(training_data[i-60:i])
+    Y_train.append(training_data[i,0])
+
+X_train, Y_train = np.array(X_train), np.array(Y_train)
+print(X_train.shape)
+
+
 
