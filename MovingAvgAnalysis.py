@@ -30,6 +30,7 @@ def stockpriceanalysis(stock):
     plt.title(stock + " Price Moving Averages")
     plt.axis('tight')
     plt.ylabel('Price')
+    plt.savefig(f'plots/{stock} Moving Averages Analysis {end_date}')
     plt.show()
     
 
