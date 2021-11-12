@@ -67,7 +67,7 @@ model.add(Dropout(0.5))
 model.add(Dense(units =1))
 model.summary()
 
-EPOCHS = 20
+EPOCHS = 25
 BATCH_SIZE = 50
 
 # Compiling the RNN
@@ -102,6 +102,7 @@ for i in range(60,inputs.shape[0]):
 X_test, Y_test = np.array(X_test), np.array(Y_test) 
 Y_pred = model.predict(X_test)
 
+# Scale back to normal price values
 scale = 1/scaler.scale_[0]
 Y_test = Y_test*scale
 Y_pred = Y_pred*scale
